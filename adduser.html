@@ -1,0 +1,55 @@
+<?php require_once("function.php"); ?>
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<title>მომხმარებლის დამატება - Beauty Secrets</title>
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
+<script type="text/javascript" src="js/placeholder.js"></script>
+</head>
+<body>
+<div class="content-big">
+<form action="#" method="post">
+მომხმარებლის ტიპი<font color="red">*</font>:<br>
+<select>
+<option value=""></option>
+<option value="მომხმარებელი">მომხმარებელი</option>
+<option value="კლინიკა">კლინიკა</option>
+</select><br>
+სახელი<font color="red">*</font>:<br>
+<input type="text" name="saxeli" width="350" placeholder="სახელი" name="saxeli" required><br>
+გვარი<font color="red">*</font>:<br>
+<input type="text" name="gvari" width="350" placeholder="გვარი" name="gvari" required><br>
+ელ.ფოსტა<font color="red">*</font>:<br>
+<input type="email" name="email" width="350" placeholder="ელ. ფოსტა" name="mail" required><br>
+პირადი ნომერი<font color="red">*</font>:<br>
+<input type="text" name="p_number" maxlength="11" placeholder="პირადი ნომერი"name="id" required><br>
+მისამართი<font color="red">*</font>:<br>
+<input type="text" name="adress" placeholder="ქალაქი, ქუჩა, ნომერი, ბინის ნომერი" name="adress" required><br>
+საკონტაკტო ნომერი<font color="red">*</font>:<br>
+<input type="text"  maxlength="10" placeholder="საკონტაკტო ნომერი" name="number" required><br>
+პაროლი<font color="red">*</font>:<br>
+<input type="password" name="password" placeholder="პაროლი" required><br>
+გაიმეორეთ პაროლი<font color="red">*</font>:<br>
+<input type="password" placeholder="პაროლი" required><br>
+<input type="submit" value="გაგზავნა" width="350">
+</form>
+</div>
+</body>
+</html>
+
+
+<?php
+if(isset($_POST["submit"]))
+{
+	$saxeli = $_POST["saxeli"];
+	$gvari = $_POST["gvari"];
+	$email = $_POST["email"];
+	$p_number = $_POST["p_number"];
+	$adress = $_POST["adress"];
+	$password = $_POST["password"];
+	add_user($saxeli,$gvari,$email,$p_number,$adress,$password);
+	header('Location: menu.html');
+	
+}
